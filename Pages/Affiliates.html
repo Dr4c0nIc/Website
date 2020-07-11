@@ -1,0 +1,61 @@
+<script>
+  $.getJSON("/partners.json", data => {
+    const partners = data.partners;
+    $(".center").append("<br><br><br>");
+    $("#partnerCount").text(partners.length);
+    partners.forEach(partner => {
+      $(".partners").append(`
+            <div class="partner">
+              <img src="${
+                partner.imageURL
+              } "style="width:13vh;height:13vh;box-shadow:0 0 0!important;border-radius:.8vh!important;"><br><br>
+              <h2 style="text-shadow:1px 1px 5px rgba(${Math.floor(
+                Math.random() * 255
+              )},${Math.floor(Math.random() * 255)},${Math.floor(
+        Math.random() * 255
+      )}, 1)!important;">${partner.name}</h2>
+              <h3 ${
+                partner.gold ? "title='Contributor'" : "title='Partner'"
+              } style="opacity:.7;text-shadow:1px 1px 5px rgba(${Math.floor(
+        Math.random() * 255
+      )},${Math.floor(Math.random() * 255)},${Math.floor(
+        Math.random() * 255
+      )}, 1)!important;">${partner.title}</h3>
+              <h4>${partner.links
+                .map(
+                  x =>
+                    `<a style="color:#3b77d9!important;" target="_blank" href="${x[1]}">${x[0]}</a>`
+                )
+                .join(" • ")}</h4>
+            </div><br><br><br>
+          `);
+    });
+  });
+</script>
+
+<div
+  class="center"
+  style="
+    transform: translate(-50%, 0) !important;
+    position: absolute;
+    left: 50%;
+    top: 15vh;
+  "
+>
+  <h1>
+    ManiaBots&trade; - Affiliates
+  </h1>
+  <h4 style="opacity: 0.7;">
+    To enquire about partnering, join our discord server by clicking
+    <a
+      href="https://discord.gg/mKUcgVK"
+      target="_blank"
+      style="color: lightgreen !important;"
+      >here</a
+    >! <br />
+    We currently have <span id="partnerCount">x</span> partners!
+  </h4>
+  <br /><br />
+  <div class="partners"></div>
+  <br />
+</div>

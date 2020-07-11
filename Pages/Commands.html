@@ -1,0 +1,35 @@
+<script>
+  $(window).ready(function () {
+    $.getJSON("https://server.maniabots.xyz/api/v3/commands", data => {
+      let meme = false;
+      $(".totalCommands").html(
+        `<br><b>Total:</b> ${data.total} commands (${data.totalAliases} aliases, ${data.totalHidden} hidden) - ${data.totalUses} total uses!<br><b>Most used:</b> ${data.mostUsedCommand}<br><br>`
+      );
+      data.categories.forEach(category => {
+        if (category === "Developer") return;
+        $(".commands").append(
+          `
+              <h2 style="opacity: .5;">${category}</h2>
+              ${data.commands
+                .filter(x => x.category == category)
+                .map(x => {
+                  if (meme && x.name == "meme") return "";
+                  if (x.name == "meme") meme = true;
+                  return `<a style="font-size: 2vh;opacity:.8;">${x.name} ${
+                    x.aliases.length > 0 ? `(${x.aliases.join(", ")})` : ""
+                  } • ${x.uses || 0} uses</a><br>`;
+                })
+                .join("")}<br>
+              `
+        );
+      });
+    });
+  });
+</script>
+<div class="center" style="transform: translate(-50%, -30%) !important;">
+  <h1>
+    CatManiaBot&trade; - Commands
+  </h1>
+  <span class="totalCommands"></span>
+  <div class="commands"></div>
+</div>

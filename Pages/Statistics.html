@@ -1,0 +1,70 @@
+<script>
+  $(window).ready(() => {
+    $.getJSON("https://server.maniabots.xyz/api/v2/serverCount", data1 => {
+      $.getJSON("https://server.maniabots.xyz/api/v3/siteStatistics", data => {
+        let cmbServ = data1.value,
+          dmbServ = data.dmbServ,
+          memberCount = data.memberCount,
+          o = 0,
+          t = 0,
+          tt = 0;
+        setInterval(() => {
+          one();
+          two();
+          three();
+        });
+        function one() {
+          $("#cmbServ").text(o);
+          if (o === cmbServ) return;
+
+          o++;
+        }
+        function two() {
+          $("#dmbServ").text(t);
+          if (t === dmbServ) return;
+
+          t++;
+        }
+        function three() {
+          $("#discordCount").text(tt);
+          if (tt === memberCount) return;
+
+          tt++;
+        }
+      }).fail(function (e) {
+        fail(e);
+      });
+    }).fail(function (e) {
+      fail(e);
+    });
+  });
+  function fail(e) {
+    console.log(e);
+    $("#faill").css("display", "block");
+    $("#faill").append(`<br>${e.status} • ${e.statusText}`);
+  }
+</script>
+<div
+  class="center"
+  style="font-size: 3vh; transform: translate(-50%, 0) !important; top: 35vh;"
+>
+  <b>Discord Members: </b>
+  <a id="discordCount">Loading...</a><br /><br />
+  <b>CatManiaBot Servers: </b>
+  <a id="cmbServ">Loading...</a><br /><br />
+  <b>DadManiaBot Servers: </b>
+  <a id="dmbServ">Loading...</a><br /><br /><br /><br />
+  <b id="faill">Failed to fetch statistics!</b><br /><br />
+  <a href="https://top.gg/bot/480421483575902208">
+    <img
+      style="border-radius: 0 !important; width: 30vh;"
+      src="https://top.gg/api/widget/480421483575902208.svg"
+      alt="CatManiaBot™"
+  /></a>
+  <a href="https://top.gg/bot/480421483575902208">
+    <img
+      style="border-radius: 0 !important; width: 30vh;"
+      src="https://top.gg/api/widget/573158352532537355.svg"
+      alt="DadManiaBot™"
+  /></a>
+</div>

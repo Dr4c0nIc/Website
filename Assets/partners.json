@@ -1,0 +1,71 @@
+{
+  "partners": [
+    {
+      "name": "Exotic Host",
+      "links": [
+        ["Website", "https://exotichost.uk"],
+        ["Discord", "https://discord.gg/PpJpcR8"]
+      ],
+      "imageURL": "https://branding.maniabots.xyz/partners/Exotic/logo-circle.png",
+      "title": "Hosting provider"
+    },
+    {
+      "name": "UpBeat",
+      "links": [
+        ["Website", "https://upbeat.pw"],
+        ["Discord", "https://discord.gg/mneg5ZR"]
+      ],
+      "imageURL": "https://branding.maniabots.xyz/partners/UpBeat/UpBeat%20Icon.png",
+      "title": "Radio Station"
+    },
+    {
+      "name": "FrenzyGames",
+      "links": [
+        [
+          "Youtube",
+          "https://www.youtube.com/channel/UCt40ZeBaxccwPDztavd7svA/about"
+        ],
+        ["Discord", "https://discord.gg/JUEGvYT"]
+      ],
+      "imageURL": "https://branding.maniabots.xyz/partners/FrenzyGames/Logo1.png",
+      "title": "Youtube Content Creator"
+    },
+    {
+      "name": "Anti Sociables",
+      "links": [["Discord", " https://discord.gg/yA5KYHW"]],
+      "imageURL": "https://branding.maniabots.xyz/partners/Anti%20Sociables/Logo1.webp",
+      "title": "Discord Community"
+    },
+    {
+      "name": "Quarantine",
+      "links": [["Discord", "https://discord.gg/pfcqyDB"]],
+      "imageURL": "https://branding.maniabots.xyz/partners/Quarantine/Logo1-1.png",
+      "title": "Discord Community"
+    },
+    {
+      "name": "C O O L S I M P S",
+      "links": [["Discord", "https://discord.gg/uNd74en"]],
+      "imageURL": "https://branding.maniabots.xyz/partners/CoolSimps/Logo-SimpSauce.jpg",
+      "title": "Discord Community"
+    },
+    {
+      "name": "Jinkaku",
+      "links": [["Discord", "https://discord.gg/8y65fdx"]],
+      "imageURL": "https://branding.maniabots.xyz/partners/Jinkaku/Logo.png",
+      "title": "Discord Bot"
+    },
+    {
+      "name": "PotatoBot",
+      "links": [
+        ["Website", "https://potatobot.xyz/"],
+        ["Discord", "https://discord.gg/tUTGxwt"],
+        [
+          "Bot",
+          "https://discord.com/oauth2/authorize?client_id=664123044222074899&scope=bot&permissions=8"
+        ]
+      ],
+      "imageURL": "https://branding.maniabots.xyz/partners/PotatoBot/Logo1-2.png",
+      "title": "Discord Bot"
+    }
+  ]
+}

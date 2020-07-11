@@ -1,0 +1,106 @@
+
+        <script>
+            $(window).ready(() => {
+                $.getJSON("https://server.maniabots.xyz/api/v3/warnings/<%= guild %>/<%= user %>", data => {
+                    $("#userimg").attr("src", data.user.displayAvatarURL || "https://branding.maniabots.xyz/LogoBlue-PartialRounded.png");
+                    $("#user").text(`${
+                        data.user.tag || "Unknown#0000"
+                    } - Warnings` || "User Not Found");
+                    $("#guild").text(data.guild ? `Guild: ${data.guild.name}` : "Guild not found!");
+                    let count = 0;
+                    if (!data.warnings) 
+                        return $(".warnings").append(`<br><br><br><br><b>${data.user.tag || "Unknown#0000"}</b> has no warnings in the guild specified!`);
+                    
+                    data.warnings.forEach(warning => {
+                        count++;
+                        $(".warnings").append(`<br><br><div class="warning"><h3>Warning: ${count}</h3><span style="opacity:.85;">Reason: </span><span style="opacity:.6;">${
+                            warning.reason
+                        }</span><br><span style="opacity:.85;">Warned By: </span><span style="opacity:.6;">${
+                            warning.warned_by.username
+                        }</span><br><span style="opacity:.85;">Time: </span><span style="opacity:.6;">${
+                            moment(warning.timestamp).fromNow()
+                        }</span></div>`);
+                    });
+                });
+            });
+        </script>
+
+        <div class="center">
+            <img src="https://branding.maniabots.xyz/LogoBlue.png" id="userimg"><br><br>
+            <h1>
+                <span id="user">Loading user info!</span><br>
+                <span id="guild" style="opacity:.7;font-size:3vh;">
+                    <b>Loading guild info!<b>
+                </span>
+            </h1>
+            <div class="warnings"></div></div>
+                <style>
+                    img {
+                        border-radius: 7%;
+                        width: 15vh;
+                    }
+                    * {
+                        color: white !important;
+                        font-family: "Rubik", sans-serif;
+                        padding: 0;
+                        margin: 0;
+                        text-decoration: none !important;
+                    }
+
+                    .background {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        background: linear-gradient(45deg, rgba(11, 60, 74, 1) 0%, rgba(0, 31, 96, 1) 100%);
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    .center {
+                        text-align: center;
+                        position: absolute;
+                        top: 15%;
+                        left: 50%;
+                        transform: translate(-50%);
+                        font-size: 2.5vh;
+                    }
+                    .navBar {
+                        margin: 5vh -3vh;
+                        z-index: 99999999;
+                        width: 100%;
+                        color: white;
+                        text-align: center;
+                        position: absolute;
+                    }
+                    .navBar a {
+                        margin-right: 1.5vh;
+                        padding: 1.5vh;
+                        border-radius: 1000000000vh;
+                        background-color: rgba(255, 255, 255, 0.2);
+                        float: right;
+                        color: white;
+                        font-size: 2vh;
+                    }
+
+                    ::-webkit-scrollbar {
+                        width: 1.5vh;
+                    }
+
+                    ::-webkit-scrollbar-track {
+                        background: #f1f1f1;
+                    }
+
+                    ::-webkit-scrollbar-thumb {
+                        background: linear-gradient(45deg, rgba(11, 60, 74, 1) 100%, rgba(0, 31, 96, 1) 80%);
+                    }
+
+                    ::-webkit-scrollbar-thumb:hover {
+                        background: linear-gradient(45deg, rgba(11, 60, 74, 0.8) 100%, rgba(0, 31, 96, 0.8) 70%);
+                    }
+                    .warning {
+                        border: 0.5vh solid rgba(51, 176, 166, 1);
+                        padding: 2vh;
+                        background: rgba(51, 176, 166, 0.3);
+                        border-radius: 0.4vh;
+                    }
+                </style>
