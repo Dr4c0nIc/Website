@@ -91,10 +91,10 @@ img {
   display: none;
 }
 #title {
-  font-size: 600%;
+  font-size: 450%;
 }
 #slogan {
-  font-size: 200%; 
+  font-size: 140%; 
   opacity: 0.95;
 }
 #cmbServ {
@@ -110,7 +110,7 @@ img {
   display:hidden;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 980px) {
   a.fab {
     display: none!important;
   }
