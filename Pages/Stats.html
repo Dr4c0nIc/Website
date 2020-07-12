@@ -1,3 +1,4 @@
+<title>Statistics</title>
 <script>
   $(window).ready(() => {
     $.getJSON("https://server.maniabots.xyz/api/v2/serverCount", data1 => {
@@ -5,30 +6,31 @@
         let cmbServ = data1.value,
           dmbServ = data.dmbServ,
           memberCount = data.memberCount,
-          o = 0,
-          t = 0,
-          tt = 0;
+          loaded1 = false;
+        loaded2 = false;
+        loaded3 = false;
+        (o = 0), (t = 0), (tt = 0);
         setInterval(() => {
           one();
           two();
           three();
         });
         function one() {
+          if (loaded1) return;
           $("#cmbServ").text(o);
-          if (o === cmbServ) return;
-
+          if (o === cmbServ) return (loaded1 = true);
           o++;
         }
         function two() {
+          if (loaded2) return;
           $("#dmbServ").text(t);
-          if (t === dmbServ) return;
-
+          if (t === dmbServ) return (loaded2 = true);
           t++;
         }
         function three() {
+          if (loaded3) return;
           $("#discordCount").text(tt);
-          if (tt === memberCount) return;
-
+          if (tt === memberCount) return (loaded3 = true);
           tt++;
         }
       }).fail(function (e) {
@@ -53,8 +55,8 @@
   <b>CatManiaBot Servers: </b>
   <a id="cmbServ">Loading...</a><br /><br />
   <b>DadManiaBot Servers: </b>
-  <a id="dmbServ">Loading...</a><br /><br /><br /><br />
-  <b id="faill">Failed to fetch statistics!</b><br /><br />
+  <a id="dmbServ">Loading...</a><br /><br />
+  <b id="faill">Failed to fetch statistics!</b><br />
   <a href="https://top.gg/bot/480421483575902208">
     <img
       style="border-radius: 0 !important; width: 30vh;"

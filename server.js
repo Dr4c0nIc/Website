@@ -1,19 +1,22 @@
 const app = require("express")(),
   url = require("url"),
   fs = require("fs");
+
 app.listen(3001, () => {
   console.log("Your app is listening on port 3001");
 });
 
 app.get("/pageRouter", (req, res) => {
   const query = url.parse(req.url, true).query;
+  let success = false;
+  setTimeout(() => {
+    if (!success) res.send("false");
+  }, 500);
   fs.readdir(`${__dirname}/Pages/`, (err, files) => {
     if (err) return res.json(err);
     files.forEach(m => {
-      console.log(query.page);
-      console.log(m);
-      if (query.page == m.split(".")[0])
-        res.sendFile(`${__dirname}/Pages/${m}`);
+      if (query.page == m.replace(".html", "").replace(".ejs", ""))
+        res.sendFile(`${__dirname}/Pages/${m}`), (success = true);
     });
   });
 });

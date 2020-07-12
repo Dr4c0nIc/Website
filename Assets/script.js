@@ -6,8 +6,22 @@ function router(page) {
       page: page
     },
     success: response => {
-      console.log(response);
-      $(".content").html(response);
+      response == "false"
+        ? (window.location.hash = "Home")
+        : (() => {
+            $(".content").html(response);
+            const nav = $(".navv");
+            nav.map(a => {
+              const x = nav[a];
+              if(window.location.hash.replace("#", "") == x.innerHTML)
+                $(x).css("background-color", "rgba(57, 148, 196, 0.5)");
+              else 
+                $(x).css("background-color", "rgba(255, 255,  255, 0.2)");
+            })
+        })()
+    },
+    error: () => {
+      $(".content").html(`<div class="center">The PageRouter does not seem to be online right now, try load a new page in a few minutes!</div>`)
     }
   });
 }

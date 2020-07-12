@@ -10,6 +10,15 @@
       "title": "Hosting provider"
     },
     {
+      "name": "Bounce",
+      "links": [
+        ["Website", "https://boun.cc"],
+        ["Discord", "LINK"]
+      ],
+      "imageURL": "https://branding.maniabots.xyz/partners/Bounce/noshadow.png",
+      "title": "Radio Station"
+    },
+    {
       "name": "UpBeat",
       "links": [
         ["Website", "https://upbeat.pw"],
