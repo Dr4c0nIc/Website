@@ -1,31 +1,43 @@
 <title>Team</title>
 <script>
-  $.getJSON("https://server.maniabots.xyz/api/v3/staff", data => {});
+	$.getJSON("https://server.maniabots.xyz/api/v3/staff", (data) => {
+		data.staff.forEach((user) => {
+			$(".center").append(`
+        <div class="creditBox" style="margin-top: 2.5vh;">
+            <img src=${user.avatar} width="130px" style="box-shadow:0!important;"><br><br>
+            <span>
+              <a>${user.name}<a style="opacity:0.5">${user.discriminator}</a></a><br>
+              <b>${user.positions}</b>
+            </span>
+        </div>
+      `);
+		});
+	});
 </script>
 
-<div class="center">
-  <div class="creditBox">
-    <br />
-    <img
-      src="https://branding.maniabots.xyz/CALLUM.png"
-      width="130px"
-      style="box-shadow: 0 !important;"
-    /><br /><br />
-    <span>
-      <a>Callum<a style="opacity: 0.5;">#6052</a> </a><br /><b
-        >Founder • Lead Developer</b
-      >
-    </span>
-  </div>
-  <div class="creditBox" style="margin-top: 2.5vh;">
-    <img
-      src="https://branding.maniabots.xyz/GERBS.png"
-      width="130px"
-    /><br /><br />
-    <span>
-      <a>GERBS<a style="opacity: 0.5;">#9775</a> </a><br /><b
-        >Founder • Developer</b
-      >
-    </span>
-  </div>
+<div class="center" style="transform: translate(-50%, 0) !important;position: absolute;left: 50%;top: 15vh;">
+	<div class="creditBox">
+		<br />
+		<img
+			src="https://branding.maniabots.xyz/CALLUM.png"
+			width="130px"
+			style="box-shadow: 0 !important;"
+		/><br /><br />
+		<span>
+			<a>Callum<a style="opacity: 0.5;">#6052</a> </a><br /><b
+				>Founder • Lead Developer</b
+			>
+		</span>
+	</div>
+	<div class="creditBox" style="margin-top: 2.5vh;">
+		<img
+			src="https://branding.maniabots.xyz/GERBS.png"
+			width="130px"
+		/><br /><br />
+		<span>
+			<a>GERBS<a style="opacity: 0.5;">#9775</a> </a><br /><b
+				>Founder • Developer</b
+			>
+		</span>
+	</div>
 </div>

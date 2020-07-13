@@ -21,6 +21,13 @@ app.get("/pageRouter", (req, res) => {
   });
 });
 
+app.get("/warnings/:guildID/:userID", (req, res) => {
+  res.render(`${__dirname}/Pages/warnings.ejs`, {
+    guild: req.params.guildID,
+    user: req.params.userID
+  })
+})
+
 app.get("/style.css", (req, res) => {
   res.sendFile(`${__dirname}/Assets/style.css`);
 });

@@ -1,30 +1,54 @@
 
-        <script>
-            $(window).ready(() => {
-                $.getJSON("https://server.maniabots.xyz/api/v3/warnings/<%= guild %>/<%= user %>", data => {
-                    $("#userimg").attr("src", data.user.displayAvatarURL || "https://branding.maniabots.xyz/LogoBlue-PartialRounded.png");
-                    $("#user").text(`${
-                        data.user.tag || "Unknown#0000"
-                    } - Warnings` || "User Not Found");
-                    $("#guild").text(data.guild ? `Guild: ${data.guild.name}` : "Guild not found!");
-                    let count = 0;
-                    if (!data.warnings) 
-                        return $(".warnings").append(`<br><br><br><br><b>${data.user.tag || "Unknown#0000"}</b> has no warnings in the guild specified!`);
-                    
-                    data.warnings.forEach(warning => {
-                        count++;
-                        $(".warnings").append(`<br><br><div class="warning"><h3>Warning: ${count}</h3><span style="opacity:.85;">Reason: </span><span style="opacity:.6;">${
-                            warning.reason
-                        }</span><br><span style="opacity:.85;">Warned By: </span><span style="opacity:.6;">${
-                            warning.warned_by.username
-                        }</span><br><span style="opacity:.85;">Time: </span><span style="opacity:.6;">${
-                            moment(warning.timestamp).fromNow()
-                        }</span></div>`);
-                    });
+<html lang="en">
+    <head>
+      <link
+        rel="icon"
+        href="https://branding.maniabots.xyz/LogoBlue-PartialRounded.png"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Rubik&amp;display=swap"
+        rel="stylesheet"
+      />
+      <link href="/style.css" rel="stylesheet" />
+      <script
+        src="https://kit.fontawesome.com/8fe5f89b2c.js"
+        crossorigin="anonymous"
+      ></script>
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script
+        data-ad-client="ca-pub-3685553013445637"
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      ></script>
+      <script src="https://unpkg.com/moment"></script>
+      <script>
+        $(window).ready(() => {
+            $.getJSON("https://server.maniabots.xyz/api/v3/warnings/<%= guild %>/<%= user %>", data => {
+                $("#userimg").attr("src", data.user.displayAvatarURL || "https://branding.maniabots.xyz/LogoBlue-PartialRounded.png");
+                $("#user").text(`${
+                    data.user.tag || "Unknown#0000"
+                } - Warnings` || "User Not Found");
+                $("#guild").text(data.guild ? `Guild: ${data.guild.name}` : "Guild not found!");
+                let count = 0;
+                if (!data.warnings) 
+                    return $(".warnings").append(`<br><br><br><br><b>${data.user.tag || "Unknown#0000"}</b> has no warnings in the guild specified!`);
+                
+                data.warnings.forEach(warning => {
+                    count++;
+                    $(".warnings").append(`<br><br><div class="warning"><h3>Warning: ${count}</h3><span style="opacity:.85;">Reason: </span><span style="opacity:.6;">${
+                        warning.reason
+                    }</span><br><span style="opacity:.85;">Warned By: </span><span style="opacity:.6;">${
+                        warning.warned_by.username
+                    }</span><br><span style="opacity:.85;">Time: </span><span style="opacity:.6;">${
+                        moment(warning.timestamp).fromNow()
+                    }</span></div>`);
                 });
             });
-        </script>
-
+        });
+    </script>
+    </head>
+    <body>
+        <div class="background"></div>
         <div class="center">
             <img src="https://branding.maniabots.xyz/LogoBlue.png" id="userimg"><br><br>
             <h1>
@@ -104,3 +128,5 @@
                         border-radius: 0.4vh;
                     }
                 </style>
+        </body>
+</html>
