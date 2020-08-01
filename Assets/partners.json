@@ -69,6 +69,22 @@
       ],
       "imageURL": "https://branding.maniabots.xyz/partners/PotatoBot/Logo1-2.png",
       "title": "Discord Bot"
+    },
+    {
+      "name": "Connor's Development",
+      "links": [
+        ["Discord", "https://discord.gg/N2wU9rf"]
+      ],
+      "imageURL": "https://branding.maniabots.xyz/partners/Connor's Development/Logo.gif",
+      "title": "Development"
+    },
+    {
+      "name": "ɢєиєяαℓ-c𝓱คt",
+      "links": [
+        ["Discord", "https://discord.gg/gN3YDZc"]
+      ],
+      "imageURL": "https://branding.maniabots.xyz/partners/GeneralChat/Logo.png",
+      "title": "Development"
     }
   ]
 }
