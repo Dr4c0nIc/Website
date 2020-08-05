@@ -28,6 +28,15 @@
       "title": "Radio Station"
     },
     {
+      "name": "Scre.ws",
+      "links": [
+        ["Website", "https://scre.ws"],
+        ["Discord", "https://discord.gg/TYURtq4"]
+      ],
+      "imageURL": "https://branding.maniabots.xyz/partners/Scre.ws/Icon.png",
+      "title": "URL Shortener"
+    },
+    {
       "name": "FrenzyGames",
       "links": [
         [
