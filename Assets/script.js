@@ -9,8 +9,7 @@ function router(page) {
       response == "false"
         ? (window.location.hash = "Home")
         : (() => {
-            $(".content").html("");
-            $("#loadDiv").html("<div class=\"center\"><br><br><br><img id=\"spin\" src=\"https://branding.maniabots.xyz/LogoBlue-PartialRounded.png\" style=\"border-radius:100%;\"></div>");
+            $(".content").html("<div class=\"center\"><br><br><br><img id=\"spin\" src=\"https://branding.maniabots.xyz/LogoBlue-PartialRounded.png\" style=\"border-radius:100%;\"></div>");
             setTimeout(() => { 
               $(".content").html(response);
               const nav = $(".navv");
