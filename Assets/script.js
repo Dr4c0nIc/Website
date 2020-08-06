@@ -10,7 +10,7 @@ function router(page) {
         ? (window.location.hash = "Home")
         : (() => {
             $(".content").html("");
-            $("#loadDiv").html("<br><br><br><img id=\"spin\" src=\"https://branding.maniabots.xyz/LogoBlue-PartialRounded.png\" style=\"border-radius:100%;\">");
+            $("#loadDiv").html("<div class=\"center\"><br><br><br><img id=\"spin\" src=\"https://branding.maniabots.xyz/LogoBlue-PartialRounded.png\" style=\"border-radius:100%;\"></div>");
             setTimeout(() => { 
               $(".content").html(response);
               const nav = $(".navv");
@@ -21,7 +21,7 @@ function router(page) {
                 else 
                   $(x).css("background-color", "rgba(255, 255,  255, 0.2)");
               })
-            }, 500)
+            }, 1000)
         })()
     },
     error: () => {
