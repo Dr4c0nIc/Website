@@ -9,15 +9,21 @@ function router(page) {
       response == "false"
         ? (window.location.hash = "Home")
         : (() => {
+            $(".content").css("display", "none");
+            $("#loadDiv").css("display", "block");
             $(".content").html(response);
-            const nav = $(".navv");
-            nav.map(a => {
-              const x = nav[a];
-              if(window.location.hash.replace("#", "") == x.innerHTML)
-                $(x).css("background-color", "rgba(57, 148, 196, 0.5)");
-              else 
-                $(x).css("background-color", "rgba(255, 255,  255, 0.2)");
-            })
+            setTimeout(() => { 
+              $("#loadDiv").css("display", "none");
+              $(".content").css("display", "block");
+              const nav = $(".navv");
+              nav.map(a => {
+                const x = nav[a];
+                if(window.location.hash.replace("#", "") == x.innerHTML)
+                  $(x).css("background-color", "rgba(57, 148, 196, 0.5)");
+                else 
+                  $(x).css("background-color", "rgba(255, 255,  255, 0.2)");
+              })
+            }, 500)
         })()
     },
     error: () => {
