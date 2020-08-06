@@ -9,11 +9,11 @@ function router(page) {
       response == "false"
         ? (window.location.hash = "Home")
         : (() => {
-            $(".content").css("display", "none");
+            $(".content").css("display", "hidden");
             $("#loadDiv").css("display", "block");
             $(".content").html(response);
             setTimeout(() => { 
-              $("#loadDiv").css("display", "none");
+              $("#loadDiv").css("display", "hidden");
               $(".content").css("display", "block");
               const nav = $(".navv");
               nav.map(a => {
