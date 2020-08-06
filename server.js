@@ -3,7 +3,7 @@ const express = require("express"),
   url = require("url"),
   fs = require("fs");
 
-app.use(express.static(__dirname+"/Assets/"))
+app.use(express.static("Assets"))
 app.listen(3001, () => {
   console.log("Your app is listening on port 3001");
 });
