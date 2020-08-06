@@ -1,4 +1,5 @@
-const app = require("express")(),
+const express = require("express"),
+  app = express(),
   url = require("url"),
   fs = require("fs");
 
