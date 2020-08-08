@@ -28,6 +28,21 @@ function router(page) {
     }
   });
 }
+
+window.onload = async() => {
+  fetch("https://server.maniabots.xyz/api/v3/offline").then(res => res.json())
+  .then(json => {
+    if(!json.response[0]) return;
+    new PNotify({
+      title: 'Uh oh!',
+      text: `The following services seem to be offline!\n\n${json.response.join(", ")}`,
+      hide: false,
+      addclass: "stack-bottomright",
+      stack: {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25}
+    });
+  })
+}
+
 if (!window.location.hash) window.location.hash = "Home";
 else {
   if (location.href.indexOf("#") > -1) {
