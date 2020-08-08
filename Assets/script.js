@@ -9,11 +9,8 @@ function router(page) {
       response == "false"
         ? (window.location.hash = "Home")
         : (() => {
-            $(".loading").show()
-            $(".content").hide()
-            setTimeout(() => {
-              $(".content").show()
-              $(".loading").hide()
+            $(".content").html("<div class=\"center\"><br><br><br><img id=\"spin\" src=\"https://branding.maniabots.xyz/LogoBlue-PartialRounded.png\" style=\"border-radius:100%;\"></div>");
+            setTimeout(() => { 
               $(".content").html(response);
               const nav = $(".navv");
               nav.map(a => {
