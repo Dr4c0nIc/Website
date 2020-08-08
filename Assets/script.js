@@ -12,8 +12,8 @@ function router(page) {
             $(".loading").show()
             $(".content").hide()
             setTimeout(() => {
-              $(".loading").fadeOut()
-              setTimeout(() => {$(".content").fadeIn()}, 3000)
+              $(".content").show()
+              $(".loading").hide()
               $(".content").html(response);
               const nav = $(".navv");
               nav.map(a => {
