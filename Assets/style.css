@@ -112,6 +112,13 @@ img {
   opacity:.7;
 }
 
+.ui-pnotify-container {
+  background-image: none;
+  background-color: rgba(150, 0, 0);
+  border-radius: 10px;
+  font-size: 11px;
+}
+
 @media only screen and (max-width: 980px) {
   a.fab {
     display: none!important;
