@@ -7,9 +7,9 @@
         setInterval(() => {
          $.getJSON("https://server.maniabots.xyz/api/v2/serverCount", data1 => {
            $.getJSON("https://server.maniabots.xyz/api/v3/siteStatistics", data => {
-             tt = data.memberCount;
-             o = data1.value;
-             t = data.dmbServ;
+             $("#discordCount").text(data.memberCount);
+             $("#cmbServ").text(data1.value);
+             $("#dmbServ").text(data.dmbServ)
            })  
           })
          }, 10000)
@@ -20,17 +20,17 @@
         });
         function one() {
           $("#cmbServ").text(o);
-          if (o === cmbServ) return;
+          if (o >= cmbServ) return;
           o++;
         }
         function two() {
           $("#dmbServ").text(t);
-          if (t === dmbServ) return;
+          if (t >= dmbServ) return;
           t++;
         }
         function three() {
           $("#discordCount").text(tt);
-          if (tt === memberCount) return;
+          if (tt >= memberCount) return;
           tt++;
         }
       }).fail(function (e) {
