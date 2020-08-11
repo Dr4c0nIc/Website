@@ -1,18 +1,18 @@
 <title>Statistics</title>
 <script>
   $(window).ready(() => {
-    let cmbServ = data1.value, dmbServ = data.dmbServ, memberCount = data.memberCount, loaded1 = false, loaded2 = false, loaded3 = false, o = 0, t = 0, tt = 0;
-    setInterval(() => {
     $.getJSON("https://server.maniabots.xyz/api/v2/serverCount", data1 => {
       $.getJSON("https://server.maniabots.xyz/api/v3/siteStatistics", data => {
-        tt = data.memberCount;
-        o = data1.value;
-        t = data.dmbServ;
-      })  
-     })
-    }, 10000)
-    $.getJSON("https://server.maniabots.xyz/api/v2/serverCount", data1 => {
-      $.getJSON("https://server.maniabots.xyz/api/v3/siteStatistics", data => {
+        let cmbServ = data1.value, dmbServ = data.dmbServ, memberCount = data.memberCount, loaded1 = false, loaded2 = false, loaded3 = false, o = 0, t = 0, tt = 0;
+        setInterval(() => {
+         $.getJSON("https://server.maniabots.xyz/api/v2/serverCount", data1 => {
+           $.getJSON("https://server.maniabots.xyz/api/v3/siteStatistics", data => {
+             tt = data.memberCount;
+             o = data1.value;
+             t = data.dmbServ;
+           })  
+          })
+         }, 10000)
         setInterval(() => {
           one();
           two();
