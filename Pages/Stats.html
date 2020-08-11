@@ -1,36 +1,36 @@
 <title>Statistics</title>
 <script>
   $(window).ready(() => {
+    let cmbServ = data1.value, dmbServ = data.dmbServ, memberCount = data.memberCount, loaded1 = false, loaded2 = false, loaded3 = false, o = 0, t = 0, tt = 0;
+    setInterval(() => {
     $.getJSON("https://server.maniabots.xyz/api/v2/serverCount", data1 => {
       $.getJSON("https://server.maniabots.xyz/api/v3/siteStatistics", data => {
-        let cmbServ = data1.value,
-          dmbServ = data.dmbServ,
-          memberCount = data.memberCount,
-          loaded1 = false;
-        loaded2 = false;
-        loaded3 = false;
-        (o = 0), (t = 0), (tt = 0);
+        tt = data.memberCount;
+        o = data1.value;
+        t = data.dmbServ;
+      })  
+     })
+    }, 10000)
+    $.getJSON("https://server.maniabots.xyz/api/v2/serverCount", data1 => {
+      $.getJSON("https://server.maniabots.xyz/api/v3/siteStatistics", data => {
         setInterval(() => {
           one();
           two();
           three();
         });
         function one() {
-          if (loaded1) return;
           $("#cmbServ").text(o);
-          if (o === cmbServ) return (loaded1 = true);
+          if (o === cmbServ) return;
           o++;
         }
         function two() {
-          if (loaded2) return;
           $("#dmbServ").text(t);
-          if (t === dmbServ) return (loaded2 = true);
+          if (t === dmbServ) return;
           t++;
         }
         function three() {
-          if (loaded3) return;
           $("#discordCount").text(tt);
-          if (tt === memberCount) return (loaded3 = true);
+          if (tt === memberCount) return;
           tt++;
         }
       }).fail(function (e) {
