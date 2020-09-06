@@ -19,5 +19,5 @@ jobs:
           password: ${{ secrets.SSHPASSWORD }}
           script: |
             cd /var/maniabots-xyz
-            git pull
+            git pull -u origin master
             pm2 restart 4
