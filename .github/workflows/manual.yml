@@ -8,7 +8,7 @@ on:
         required: true
 
 jobs:
-  greet:
+  push:
     runs-on: ubuntu-latest
     steps:
       - name: Deploying...
@@ -18,6 +18,6 @@ jobs:
           username: ${{ secrets.SSHUSERNAME }}
           password: ${{ secrets.SSHPASSWORD }}
           script: |
-            cd /var/maniabots-syz
+            cd /var/maniabots-xyz
             git pull
             pm2 restart 4
