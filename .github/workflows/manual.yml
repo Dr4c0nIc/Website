@@ -1,0 +1,23 @@
+name: PushChanges
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Send updated code to server and restart app'
+        default: 'World'
+        required: true
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploying...
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSHHOST }}
+          username: ${{ secrets.SSHUSERNAME }}
+          password: ${{ secrets.SSHPASSWORD }}
+          script: |
+            cd /var/maniabots-syz
+            git pull
+            pm2 restart 4
