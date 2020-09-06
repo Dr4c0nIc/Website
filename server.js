@@ -7,6 +7,8 @@ app.listen(3001, () => {
   console.log("Your app is listening on port 3001");
 });
 
+app.get("/test", (req, res) => res.send("test success"))
+
 app.get("/pageRouter", (req, res) => {
   const query = url.parse(req.url, true).query;
   let success = false;
