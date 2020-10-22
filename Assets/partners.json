@@ -10,14 +10,6 @@
       "title": "Hosting provider"
     },
     {
-      "name": "Repeat",
-      "links": [
-        ["Website", "https://repeat.pw"]
-      ],
-      "imageURL": "https://repeatradio.net/staff/avatars/default.png",
-      "title": "Radio Station"
-    },
-    {
       "name": "UpBeat",
       "links": [
         ["Website", "https://upbeat.pw"],
