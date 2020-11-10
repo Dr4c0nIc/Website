@@ -1,0 +1,19 @@
+name: BetaSite
+on:
+  push:
+    branches: new
+
+jobs:
+  DePloY:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Deploying...
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSHHOST }}
+          username: ${{ secrets.SSHUSERNAME }}
+          password: ${{ secrets.SSHPASSWORD }}
+          script: |
+            cd /var/beta-site
+            git pull origin new
+            pm2 restart 7
