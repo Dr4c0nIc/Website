@@ -1,3 +1,5 @@
+let $ = jQuery || $; // thanks jquery for being rude
+
 function router(page) {
   $.ajax({
     type: "GET",
