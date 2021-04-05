@@ -1,7 +1,6 @@
 name: BetaSite
-  on:
-    push:
-      branches: new
+on:
+  workflow_dispatch:
 
 jobs:
   DePloY:
